@@ -1,15 +1,25 @@
-import React from "react";
 import ReactDOM from "react-dom";
-
+import React, { Component } from "react";
+import Card from "./components/Card";
 import "./styles.css";
 
-function App() {
-  return (
-    <div className="App">
-      <h1>Hello CodeSandbox</h1>
-      <h2>Start editing to see some magic happen!</h2>
-    </div>
-  );
+class App extends Component {
+  state = {
+    last: null,
+    cards: []
+  };
+  Flip() {
+    alert(1);
+  }
+  cards() {}
+  render() {
+    return (
+      <div className="App">
+        <Card Flip={() => this.Flip()} title="123" />
+        <Card Flip={() => this.Flip()} title="213" />
+      </div>
+    );
+  }
 }
 
 const rootElement = document.getElementById("root");
