@@ -1,2 +1,0 @@
-# MemoryCardGame
-Created with CodeSandbox
