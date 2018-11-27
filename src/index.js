@@ -1,26 +1,14 @@
+import React from "react";
 import ReactDOM from "react-dom";
-import React, { Component } from "react";
-import Card from "./components/Card";
+import { Provider } from "react-redux";
+
 import "./styles.css";
+import store from "./store";
+import App from "./containers/App";
 
-class App extends Component {
-  state = {
-    last: null,
-    cards: []
-  };
-  Flip() {
-    alert(1);
-  }
-  cards() {}
-  render() {
-    return (
-      <div className="App">
-        <Card Flip={() => this.Flip()} title="123" />
-        <Card Flip={() => this.Flip()} title="213" />
-      </div>
-    );
-  }
-}
-
-const rootElement = document.getElementById("root");
-ReactDOM.render(<App />, rootElement);
+ReactDOM.render(
+  <Provider store={store}>
+    <App />
+  </Provider>,
+  document.getElementById("root")
+);
