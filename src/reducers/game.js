@@ -1,11 +1,12 @@
-import { CARD_FLIP, GAME_START, GAME_STOP, GAME_INIT } from "../const";
+import {
+  INITIAL_STATE,
+  CARD_FLIP,
+  GAME_START,
+  GAME_STOP,
+  GAME_INIT
+} from "../const";
 
-const initialState = {
-  cards: [],
-  start: false
-};
-
-const game = (state = initialState, action) => {
+const game = (state = INITIAL_STATE, action) => {
   // console.log('game', action);
   switch (action.type) {
     case GAME_INIT: {

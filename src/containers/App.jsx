@@ -3,26 +3,22 @@ import React, { Component } from "react";
 import Cards from "../components/Cards";
 
 import store from "../store";
-import { GAME_INIT } from "../const";
+import { GAME_INIT, GAME_SIZE, GAME_RND } from "../const";
 
 export default class App extends Component {
   componentDidMount() {
-    const size = 5;
-    const rnd = Math.random();
-    const keys = [...Array(size).keys()];
+    const keys = [...Array(GAME_SIZE).keys()];
     const cards = Array.prototype.concat(
       [],
       ...keys.map(key => {
         return [
           {
-            title: key,
             key: `${key}_1`,
-            img: `https://robohash.org/${rnd}${key}`
+            img: `https://robohash.org/${GAME_RND}${key}`
           },
           {
-            title: key,
             key: `${key}_2`,
-            img: `https://robohash.org/${rnd}${key}`
+            img: `https://robohash.org/${GAME_RND}${key}`
           }
         ];
       })
