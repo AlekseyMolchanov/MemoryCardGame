@@ -7,7 +7,7 @@ import {
 } from "../const";
 
 const game = (state = INITIAL_STATE, action) => {
-  // console.log('game', action);
+  console.log("game action", action);
   switch (action.type) {
     case GAME_INIT: {
       return {

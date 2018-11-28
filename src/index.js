@@ -3,8 +3,8 @@ import ReactDOM from "react-dom";
 import { Provider } from "react-redux";
 
 import "./styles.css";
-import store from "./store";
-import App from "./containers/App";
+import store from "./utils/store";
+import App from "./components/App";
 
 ReactDOM.render(
   <Provider store={store}>

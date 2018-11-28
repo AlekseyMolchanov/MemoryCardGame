@@ -6,4 +6,4 @@ const reset = () => {
   };
 };
 
-export { reset };
+export default { reset };

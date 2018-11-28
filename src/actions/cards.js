@@ -1,6 +1,6 @@
-import { CARD_FLIP } from "../const";
+import { CARD_FLIP, GAME_INIT } from "../const";
 
-const flip = card => {
+const flipCard = card => {
   // console.log("flip", card);
   return {
     type: CARD_FLIP,
@@ -8,4 +8,11 @@ const flip = card => {
   };
 };
 
-export { flip };
+const setCards = cards => {
+  return {
+    type: GAME_INIT,
+    cards: cards
+  };
+};
+
+export default { flipCard, setCards };

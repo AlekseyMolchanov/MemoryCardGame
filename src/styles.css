@@ -8,6 +8,11 @@ body {
   text-align: center;
   padding: 20px;
 }
+#root > div > div {
+  display: flex;
+  text-align: center;
+}
+
 #root > div > div > div {
   display: block;
   float: left;
