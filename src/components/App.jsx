@@ -1,10 +1,13 @@
 import React, { Component } from "react";
-
+import { connect } from "react-redux";
 import Cards from "../components/Cards";
-
+import actions from "../actions/game";
 import { GAME_WIDTH, GAME_HEIGHT, GAME_RND } from "../const";
 
-export default class App extends Component {
+class App extends Component {
+  componentWillMount() {
+    this.props.resetGame();
+  }
   render() {
     return (
       <div className="app">
@@ -13,3 +16,16 @@ export default class App extends Component {
     );
   }
 }
+
+const mapStateToProps = state => {
+  return {
+    start: state.game.start
+  };
+};
+
+export default connect(
+  mapStateToProps,
+  {
+    ...actions
+  }
+)(App);

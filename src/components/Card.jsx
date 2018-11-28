@@ -5,21 +5,41 @@ import actions from "../actions/cards";
 
 class Card extends Component {
   handleflip = event => {
-    this.props.flipCard(this.props.id);
+    if (!this.props.is_open) this.props.flipCard(this.props);
   };
   render() {
-    const style = cardStyle(this.props);
-    const cls = "card " + (!!this.props.is_open ? "is_open" : "is_close");
+    const { order, width, height } = this.props;
+    const style = cardStyle(order, width, height);
     return (
-      <div style={style} className={cls} onClick={this.handleflip}>
+      <div className={this.props.cls} style={style} onClick={this.handleflip}>
         <img src={this.props.src} />
       </div>
     );
   }
 }
 
+const mapStateToProps = (state, props) => {
+  let found = state.game.cards.filter(card => card.id === props.id);
+  let card = found[0];
+
+  const stack = [
+    "card",
+    card.is_open ? "is_open" : "is_close",
+    state.game.last && state.game.last.id == card.id ? "last" : ""
+  ];
+
+  return {
+    cls: stack.join(" "),
+    is_open: card.is_open,
+    order: card.order,
+    width: card.width,
+    height: card.height,
+    src: card.src
+  };
+};
+
 export default connect(
-  null,
+  mapStateToProps,
   {
     ...actions
   }

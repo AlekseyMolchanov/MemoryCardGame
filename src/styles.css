@@ -40,6 +40,9 @@ body {
   flex: 1 0 auto;
   border-radius: 10px;
 }
+.card.last {
+  border-color: #00b19a;
+}
 
 .card.is_close:before {
   content: "?";
@@ -54,20 +57,15 @@ body {
   color: #117568;
   text-shadow: 0px 0px 10px white;
 }
-
-.card.is_open {
-  /* background-color: rgb(64, 215, 180); */
-}
-
 .card img {
+  visibility: hidden;
   position: relative;
   left: 25%;
   margin-left: -50%;
   height: 100%;
-  width: auto;
 }
-.card img {
-  visibility: hidden;
+.card.is_open {
+  background-color: rgba(64, 215, 180, 0.096);
 }
 .card.is_open img {
   visibility: visible;

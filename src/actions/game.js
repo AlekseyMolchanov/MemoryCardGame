@@ -1,9 +1,9 @@
 import { GAME_RESET } from "../const";
 
-const reset = () => {
+const resetGame = () => {
   return {
     type: GAME_RESET
   };
 };
 
-export default { reset };
+export default { resetGame };

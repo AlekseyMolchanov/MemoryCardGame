@@ -3,7 +3,8 @@ import {
   CARD_FLIP,
   GAME_START,
   GAME_STOP,
-  GAME_INIT
+  GAME_INIT,
+  GAME_RESET
 } from "../const";
 
 const game = (state = INITIAL_STATE, action) => {
@@ -18,8 +19,11 @@ const game = (state = INITIAL_STATE, action) => {
     case CARD_FLIP: {
       return {
         ...state,
+        last: action.card,
         cards: state.cards.map(card =>
-          card.id === action.id ? { ...card, is_open: !card.is_open } : card
+          card.id === action.card.id
+            ? { ...card, is_open: !card.is_open }
+            : card
         )
       };
     }
@@ -35,6 +39,15 @@ const game = (state = INITIAL_STATE, action) => {
         start: true
       };
     }
+    case GAME_RESET: {
+      return {
+        ...state,
+        last: null,
+        cards: [],
+        start: false
+      };
+    }
+
     default:
       return state;
   }

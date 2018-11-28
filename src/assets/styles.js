@@ -1,7 +1,7 @@
-export const cardStyle = (card, width, height) => {
+export const cardStyle = (order, width, height) => {
   return {
-    order: card.order,
-    width: `${card.width}%`,
-    height: `${card.height}%`
+    order: order,
+    width: `${width}%`,
+    height: `${height}%`
   };
 };
