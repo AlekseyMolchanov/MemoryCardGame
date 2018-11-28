@@ -1,25 +1,74 @@
 body {
-  background: gray;
+  background: #00ae9a;
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
 #root {
   font-family: sans-serif;
   text-align: center;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(to bottom, #e9e9bd 0%, #00ae9a 100%);
   padding: 20px;
 }
-#root > div > div {
+.app {
+  display: block;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 5% 10%;
+}
+.cards {
+  height: 100%;
+  width: 100%;
   display: flex;
-  text-align: center;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  align-content: space-around;
+}
+.card {
+  position: relative;
+  border: 1px solid #d4e4b8;
+  box-sizing: border-box;
+  overflow: hidden;
+  flex: 1 0 auto;
+  border-radius: 10px;
 }
 
-#root > div > div > div {
+.card.is_close:before {
+  content: "?";
   display: block;
-  float: left;
-  width: 150px;
-  height: 150px;
-  border: 1px solid white;
-  line-height: 50px;
-  color: white;
-  background-size: 100%;
+  width: 80px;
+  height: 80px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin: -40px 0 0 -40px;
+  font-size: 5em;
+  color: #117568;
+  text-shadow: 0px 0px 10px white;
+}
+
+.card.is_open {
+  /* background-color: rgb(64, 215, 180); */
+}
+
+.card img {
+  position: relative;
+  left: 25%;
+  margin-left: -50%;
+  height: 100%;
+  width: auto;
+}
+.card img {
+  visibility: hidden;
+}
+.card.is_open img {
+  visibility: visible;
 }

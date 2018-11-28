@@ -1,6 +1,7 @@
-export const cardStyle = card => {
+export const cardStyle = (card, width, height) => {
   return {
-    // backgroundImage: `url(${card.img})`,
-    order: card.order
+    order: card.order,
+    width: `${card.width}%`,
+    height: `${card.height}%`
   };
 };

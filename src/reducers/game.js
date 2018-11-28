@@ -17,7 +17,10 @@ const game = (state = INITIAL_STATE, action) => {
     }
     case CARD_FLIP: {
       return {
-        ...state
+        ...state,
+        cards: state.cards.map(card =>
+          card.id === action.id ? { ...card, is_open: !card.is_open } : card
+        )
       };
     }
     case GAME_STOP: {

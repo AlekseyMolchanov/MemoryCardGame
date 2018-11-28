@@ -3,7 +3,9 @@ export const INITIAL_STATE = {
   start: false
 };
 
-export const GAME_SIZE = 2;
+export const GAME_WIDTH = 4;
+export const GAME_HEIGHT = 3;
+
 export const GAME_RND = Math.random();
 
 export const GAME_START = "GAME_START";

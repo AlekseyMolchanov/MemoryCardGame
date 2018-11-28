@@ -6,28 +6,31 @@ import actions from "../actions/cards";
 
 class Cards extends Component {
   componentDidMount() {
-    const keys = [...Array(this.props.size).keys()];
+    const size = (this.props.width * this.props.height) / 2;
+    const keys = [...Array(size).keys()];
     const cards = Array.prototype.concat(
       [],
       ...keys.map(key => {
         return [
           {
+            id: `${key}_1`,
             key: `${key}_1`,
-            title: `${key}_1`,
-            img: `https://robohash.org/${this.props.rnd}${key}`
+            src: `https://robohash.org/${this.props.rnd}${key}`
           },
           {
+            id: `${key}_2`,
             key: `${key}_2`,
-            title: `${key}_2`,
-            img: `https://robohash.org/${this.props.rnd}${key}`
+            src: `https://robohash.org/${this.props.rnd}${key}`
           }
         ];
       })
     );
 
-    cards
-      .map((card, order) => (card.order = order))
-      .sort(() => Math.random() - 0.5);
+    cards.sort(() => Math.random() - 0.5);
+    cards.map((card, order) => (card.order = order));
+    cards.map((card, order) => (card.is_open = false));
+    cards.map((card, order) => (card.width = 25));
+    cards.map((card, order) => (card.height = 33));
 
     this.props.setCards(cards);
   }
@@ -35,7 +38,7 @@ class Cards extends Component {
   render() {
     const { cards } = this.props;
     return (
-      <div>
+      <div className="cards">
         {cards.map(card => (
           <Card {...card} />
         ))}
