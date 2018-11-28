@@ -43,6 +43,9 @@ body {
 .card.last {
   border-color: #00b19a;
 }
+.card.is_done {
+  border-color: red;
+}
 
 .card.is_close:before {
   content: "?";

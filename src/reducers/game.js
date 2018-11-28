@@ -20,11 +20,25 @@ const game = (state = INITIAL_STATE, action) => {
       return {
         ...state,
         last: action.card,
-        cards: state.cards.map(card =>
-          card.id === action.card.id
-            ? { ...card, is_open: !card.is_open }
-            : card
-        )
+        cards: state.cards.map(card => {
+          let _card =
+            state.last && state.last.pare === card.pare
+              ? { ..._card, is_done: true }
+              : _card;
+          _card =
+            !card.is_done && card.id === action.card.id
+              ? { ...card, is_open: !card.is_open }
+              : card;
+          _card =
+            !card.is_done &&
+            state.last &&
+            state.last.pare !== card.pare &&
+            _card.id !== action.card.id
+              ? { ..._card, is_open: false }
+              : _card;
+
+          return _card;
+        })
       };
     }
     case GAME_STOP: {

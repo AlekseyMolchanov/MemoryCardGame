@@ -14,12 +14,12 @@ class Cards extends Component {
         return [
           {
             id: `${key}_1`,
-            key: `${key}_1`,
+            pare: key,
             src: `https://robohash.org/${this.props.rnd}${key}`
           },
           {
             id: `${key}_2`,
-            key: `${key}_2`,
+            pare: key,
             src: `https://robohash.org/${this.props.rnd}${key}`
           }
         ];
@@ -40,7 +40,7 @@ class Cards extends Component {
     return (
       <div className="cards">
         {cards.map(card => (
-          <Card id={card.id} key={card.key} />
+          <Card id={card.id} key={card.id} />
         ))}
       </div>
     );

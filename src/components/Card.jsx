@@ -25,6 +25,7 @@ const mapStateToProps = (state, props) => {
   const stack = [
     "card",
     card.is_open ? "is_open" : "is_close",
+    card.is_done ? "is_done" : "",
     state.game.last && state.game.last.id == card.id ? "last" : ""
   ];
 
