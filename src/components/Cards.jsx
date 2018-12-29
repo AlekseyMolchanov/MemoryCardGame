@@ -40,7 +40,7 @@ class Cards extends Component {
     return (
       <div className="cards">
         {cards.map(card => (
-          <Card id={card.id} key={card.id} />
+          <Card id={card.id} pare={card.pare} key={card.id} />
         ))}
       </div>
     );

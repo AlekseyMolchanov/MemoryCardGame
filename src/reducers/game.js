@@ -21,21 +21,20 @@ const game = (state = INITIAL_STATE, action) => {
         ...state,
         last: action.card,
         cards: state.cards.map(card => {
-          let _card =
-            state.last && state.last.pare === card.pare
-              ? { ..._card, is_done: true }
-              : _card;
-          _card =
-            !card.is_done && card.id === action.card.id
-              ? { ...card, is_open: !card.is_open }
-              : card;
-          _card =
-            !card.is_done &&
-            state.last &&
-            state.last.pare !== card.pare &&
-            _card.id !== action.card.id
-              ? { ..._card, is_open: false }
-              : _card;
+          let is_done =
+            card.is_done ||
+            (state.last &&
+              (state.last.pare === action.card.pare &&
+                (card.id === action.card.id || card.id === state.last.id)));
+
+          let _card = {
+            ...card,
+            is_done: is_done,
+            is_open:
+              card.id === action.card.id ||
+              // (state.last && card.id === state.last.id) || - add easy level
+              is_done
+          };
 
           return _card;
         })

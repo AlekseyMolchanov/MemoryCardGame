@@ -1,7 +1,7 @@
 import { CARD_FLIP, GAME_INIT } from "../const";
 
 const flipCard = card => {
-  // console.log("flip", card);
+  console.log("flip", card);
   return {
     type: CARD_FLIP,
     card

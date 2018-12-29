@@ -5,7 +5,8 @@ import actions from "../actions/cards";
 
 class Card extends Component {
   handleflip = event => {
-    if (!this.props.is_open) this.props.flipCard(this.props);
+    if (!this.props.is_open)
+      this.props.flipCard({ id: this.props.id, pare: this.props.pare });
   };
   render() {
     const { order, width, height } = this.props;
