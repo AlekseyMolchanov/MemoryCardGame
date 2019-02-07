@@ -1,12 +1,15 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { cardStyle } from "../assets/styles";
-import actions from "../actions/cards";
+import actions from "../redux/actions/cards";
 
 class Card extends Component {
   handleflip = event => {
     if (!this.props.is_open)
-      this.props.flipCard({ id: this.props.id, pare: this.props.pare });
+      this.props.flipCard({
+        id: this.props.id,
+        pare: this.props.pare
+      });
   };
   render() {
     const { order, width, height } = this.props;
@@ -27,7 +30,7 @@ const mapStateToProps = (state, props) => {
     "card",
     card.is_open ? "is_open" : "is_close",
     card.is_done ? "is_done" : "",
-    state.game.last && state.game.last.id == card.id ? "last" : ""
+    state.game.last && state.game.last.id === card.id ? "last" : ""
   ];
 
   return {
@@ -42,7 +45,5 @@ const mapStateToProps = (state, props) => {
 
 export default connect(
   mapStateToProps,
-  {
-    ...actions
-  }
+  actions
 )(Card);

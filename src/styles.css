@@ -34,17 +34,19 @@ body {
 }
 .card {
   position: relative;
-  border: 1px solid #d4e4b8;
+  /* border: 1px solid #d4e4b8; */
   box-sizing: border-box;
   overflow: hidden;
   flex: 1 0 auto;
   border-radius: 10px;
+  box-shadow: 0px 0px 0px 1px #d4e4b8 inset;
+  transition: box-shadow 1.6s linear;
 }
 .card.last {
   border-color: #00b19a;
 }
 .card.is_done {
-  border-color: red;
+  box-shadow: 0px 0px 5px 5px #ffa604 inset;
 }
 
 .card.is_close:before {

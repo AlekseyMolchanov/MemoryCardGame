@@ -8,7 +8,7 @@ import {
 } from "../const";
 
 const game = (state = INITIAL_STATE, action) => {
-  console.log("game action", action);
+  // console.log("game action", action);
   switch (action.type) {
     case GAME_INIT: {
       return {
@@ -30,10 +30,7 @@ const game = (state = INITIAL_STATE, action) => {
           let _card = {
             ...card,
             is_done: is_done,
-            is_open:
-              card.id === action.card.id ||
-              // (state.last && card.id === state.last.id) || - add easy level
-              is_done
+            is_open: card.id === action.card.id || is_done
           };
 
           return _card;
