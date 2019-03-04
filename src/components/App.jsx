@@ -1,8 +1,11 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import Cards from "../components/Cards";
+
 import actions from "../redux/actions/game";
 import { GAME_WIDTH, GAME_HEIGHT } from "../const";
+
+import Cards from "./Cards";
+import Splash from "./Splash";
 
 class App extends Component {
   constructor(props) {
@@ -12,7 +15,9 @@ class App extends Component {
   render() {
     return (
       <div className="app">
-        <Cards width={GAME_WIDTH} height={GAME_HEIGHT} />
+        <Splash>
+          <Cards width={GAME_WIDTH} height={GAME_HEIGHT} />
+        </Splash>
       </div>
     );
   }

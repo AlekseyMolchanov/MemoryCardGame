@@ -1,7 +1,8 @@
 export const INITIAL_STATE = {
   cards: [],
   last: null,
-  start: false
+  start: false,
+  is_win: false
 };
 
 export const GAME_START = "GAME_START";

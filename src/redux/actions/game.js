@@ -1,4 +1,4 @@
-import { GAME_RESET } from "../const";
+import { GAME_RESET, GAME_START } from "../const";
 
 const resetGame = () => {
   return {
@@ -6,4 +6,10 @@ const resetGame = () => {
   };
 };
 
-export default { resetGame };
+const startGame = () => {
+  return {
+    type: GAME_START
+  };
+};
+
+export default { resetGame, startGame };

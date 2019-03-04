@@ -5,18 +5,16 @@ import actions from "../redux/actions/cards";
 
 class Card extends Component {
   handleflip = event => {
-    if (!this.props.is_open)
-      this.props.flipCard({
-        id: this.props.id,
-        pare: this.props.pare
-      });
+    let { id, is_open, pare, flipCard } = this.props;
+    if (!is_open) flipCard({ id, pare });
   };
   render() {
-    const { order, width, height } = this.props;
+    const { order, width, height, src, cls } = this.props;
     const style = cardStyle(order, width, height);
+
     return (
-      <div className={this.props.cls} style={style} onClick={this.handleflip}>
-        <img src={this.props.src} />
+      <div className={cls} style={style} onClick={this.handleflip}>
+        <img src={src} alt="?" />
       </div>
     );
   }

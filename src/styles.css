@@ -75,3 +75,18 @@ body {
 .card.is_open img {
   visibility: visible;
 }
+.start {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 300px;
+  display: block;
+  background: #00b29a;
+  border-radius: 20px;
+  height: 40px;
+  line-height: 40px;
+  border: 2px solid silver;
+  color: #ffffff;
+  cursor: pointer;
+  margin: -20px -150px;
+}

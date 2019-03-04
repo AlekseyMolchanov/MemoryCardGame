@@ -7,15 +7,17 @@ import actions from "../redux/actions/cards";
 class Cards extends Component {
   constructor(props) {
     super(props);
-    this.props.loadCards(this.props.width, this.props.height);
+    let { width, height, loadCards } = this.props;
+    loadCards(width, height);
   }
 
   render() {
     const { cards } = this.props;
+
     return (
       <div className="cards">
-        {cards.map(card => (
-          <Card id={card.id} pare={card.pare} key={card.id} />
+        {cards.map(({ id, pare }) => (
+          <Card id={id} pare={pare} key={id} />
         ))}
       </div>
     );
