@@ -15,7 +15,7 @@ class App extends Component {
   render() {
     return (
       <div className="app">
-        <Splash>
+        <Splash caption="Начать игру!">
           <Cards width={GAME_WIDTH} height={GAME_HEIGHT} />
         </Splash>
       </div>

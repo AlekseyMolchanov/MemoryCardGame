@@ -8,20 +8,22 @@ class Splash extends React.Component {
   };
 
   render() {
-    if (this.props.start) return this.props.children;
+    let { caption, children, start } = this.props;
+    if (start) return children;
     return (
       <div>
         <div className="start" onClick={this.start_game}>
-          Начать игру
+          {caption}
         </div>
       </div>
     );
   }
 }
-const mapStateToProps = state => {
+const mapStateToProps = (state, props) => {
   let { start } = state.game;
-
+  console.log(props);
   return {
+    caption: "Сыграть еще раз",
     start
   };
 };
