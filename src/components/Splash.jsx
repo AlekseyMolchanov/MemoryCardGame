@@ -1,6 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import actions from "../redux/actions/game";
+import { START_GAME_BTN_TITLE } from "../const";
 
 class Splash extends React.Component {
   start_game = () => {
@@ -23,12 +24,9 @@ const mapStateToProps = (state, props) => {
   let { start } = state.game;
   console.log(props);
   return {
-    caption: "Сыграть еще раз",
+    caption: START_GAME_BTN_TITLE,
     start
   };
 };
 
-export default connect(
-  mapStateToProps,
-  actions
-)(Splash);
+export default connect(mapStateToProps, actions)(Splash);
