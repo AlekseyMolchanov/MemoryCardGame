@@ -6,9 +6,10 @@ const resetGame = () => {
   };
 };
 
-const startGame = () => {
+const startGame = (set) => {
   return {
-    type: GAME_START
+    type: GAME_START,
+    set
   };
 };
 

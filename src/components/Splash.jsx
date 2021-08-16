@@ -1,32 +1,25 @@
 import React from "react";
 import { connect } from "react-redux";
-import actions from "../redux/actions/game";
-import { START_GAME_BTN_TITLE } from "../const";
+import { START_GAME_BTN_TITLE_SET0, START_GAME_BTN_TITLE_SET4 } from "../const";
+import Buttion from "./Buttion";
 
 class Splash extends React.Component {
-  start_game = () => {
-    this.props.startGame();
-  };
-
   render() {
-    let { caption, children, start } = this.props;
-    if (start) return children;
+    let { cats_caption, robots_caption } = this.props;
     return (
-      <div>
-        <div className="start" onClick={this.start_game}>
-          {caption}
-        </div>
+      <div className="menu">
+        <Buttion caption={cats_caption} set="set4" />
+        <Buttion caption={robots_caption} set="set0" />
       </div>
     );
   }
 }
-const mapStateToProps = (state, props) => {
-  let { start } = state.game;
-  console.log(props);
+
+const mapStateToProps = (state) => {
   return {
-    caption: START_GAME_BTN_TITLE,
-    start
+    cats_caption: START_GAME_BTN_TITLE_SET4,
+    robots_caption: START_GAME_BTN_TITLE_SET0
   };
 };
 
-export default connect(mapStateToProps, actions)(Splash);
+export default connect(mapStateToProps)(Splash);

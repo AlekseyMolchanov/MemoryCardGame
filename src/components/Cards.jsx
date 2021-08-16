@@ -7,8 +7,8 @@ import actions from "../redux/actions/cards";
 class Cards extends Component {
   constructor(props) {
     super(props);
-    let { width, height, loadCards } = this.props;
-    loadCards(width, height);
+    let { width, height, set, loadCards } = this.props;
+    loadCards(width, height, set);
   }
 
   render() {
@@ -24,13 +24,11 @@ class Cards extends Component {
   }
 }
 
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
   return {
-    cards: state.game.cards
+    cards: state.game.cards,
+    set: state.game.set
   };
 };
 
-export default connect(
-  mapStateToProps,
-  actions
-)(Cards);
+export default connect(mapStateToProps, actions)(Cards);

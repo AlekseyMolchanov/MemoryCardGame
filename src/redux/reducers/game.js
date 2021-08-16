@@ -20,12 +20,12 @@ const game = (state = INITIAL_STATE, action) => {
       return {
         ...state,
         last: action.card,
-        cards: state.cards.map(card => {
+        cards: state.cards.map((card) => {
           let is_done =
             card.is_done ||
             (state.last &&
-              (state.last.pare === action.card.pare &&
-                (card.id === action.card.id || card.id === state.last.id)));
+              state.last.pare === action.card.pare &&
+              (card.id === action.card.id || card.id === state.last.id));
 
           let _card = {
             ...card,
@@ -46,6 +46,7 @@ const game = (state = INITIAL_STATE, action) => {
     case GAME_START: {
       return {
         ...state,
+        set: action.set,
         start: true
       };
     }

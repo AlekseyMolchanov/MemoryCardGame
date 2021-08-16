@@ -1,4 +1,5 @@
 export const INITIAL_STATE = {
+  set: null,
   cards: [],
   last: null,
   start: false,

@@ -3,7 +3,6 @@ import { connect } from "react-redux";
 
 import actions from "../redux/actions/game";
 import { GAME_WIDTH, GAME_HEIGHT } from "../const";
-import { START_GAME_BTN_TITLE } from "../const";
 
 import Cards from "./Cards";
 import Splash from "./Splash";
@@ -16,9 +15,11 @@ class App extends Component {
   render() {
     return (
       <div className="app">
-        <Splash caption={START_GAME_BTN_TITLE}>
+        {this.props.start ? (
           <Cards width={GAME_WIDTH} height={GAME_HEIGHT} />
-        </Splash>
+        ) : (
+          <Splash />
+        )}
       </div>
     );
   }
